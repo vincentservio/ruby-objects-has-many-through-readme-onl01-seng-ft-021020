@@ -1,30 +1,17 @@
 class Meal
- 
-  attr_accessor :waiter, :customer, :total, :tip
- 
-  @@all = []
- 
-  def initialize(waiter, customer, total, tip=0)
-    @waiter = waiter
-    @customer = customer
-    @total = total
-    @tip = tip
-    @@all << self
-  end
- 
- def waiters
-  meals.map do |meal|
-    meal.waiter
-  end
-end
+    attr_accessor :customer, :waiter, :total, :tip
 
-def meals
-  Meal.all.select do |meal|
-    meal.waiter == self #checking for waiter now
-  end
-end
+    @@all = Array.new
 
-  def self.all
-    @@all
-  end
+    def initialize(waiter, customer, total, tip = 0)
+        @waiter = waiter
+        @customer = customer
+        @total = total
+        @tip = tip
+        @@all << self
+    end
+
+    def self.all
+        @@all
+    end
 end
